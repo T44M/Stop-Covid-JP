@@ -33,8 +33,8 @@ def total_covid():
     return tweet_world
 
 if __name__ == '__main__':
-    auth = tweepy.OAuthHandler('3Gkn2Y145WwZ5kFt4NBCBKVGm', 'nio5smQQLOex29tIEJiDWlXUiE8JCi8Y6fmuzQ1DOYKt2QCKrK')
-    auth.set_access_token('1355161653961228291-qHLAUQO5YNckIeln2qGn5bVK5T43AK', 'ZXVBIVxGHDLuKYJ0zMA9vbIsfmRporIqRw4790KMujNLN')
+    auth = tweepy.OAuthHandler('xxxxxxxxxxxx', 'xxxxxxxxxxxxxx')
+    auth.set_access_token('xxxxxxxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxxxxx')
 
     # Create API object
     api = tweepy.API(auth)
