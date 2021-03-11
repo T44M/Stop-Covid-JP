@@ -2,11 +2,17 @@ import sys
 import datetime
 import requests
 import tweepy
+import os
 from lxml import html
+from os import environ
 
 now = datetime.datetime.now()
 date = now.strftime("%Y/%m/%d %H:%M")
 
+CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_SECRET = environ['CONSUMER_SECRET']
+ACCESS_KEY = environ['ACCESS_KEY']
+ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
 
 def total_covid():
     response = requests.get('https://www.worldometers.info/coronavirus/')
@@ -33,8 +39,8 @@ def total_covid():
     return tweet_world
 
 if __name__ == '__main__':
-    auth = tweepy.OAuthHandler('xxxxxxxxxxxx', 'xxxxxxxxxxxxxx')
-    auth.set_access_token('xxxxxxxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxxxxx')
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 
     # Create API object
     api = tweepy.API(auth)
