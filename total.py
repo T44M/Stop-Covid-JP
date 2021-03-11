@@ -40,7 +40,7 @@ def total_covid():
 
 if __name__ == '__main__':
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_KEY_SECRET)
 
     # Create API object
     api = tweepy.API(auth)
