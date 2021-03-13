@@ -4,12 +4,18 @@ import requests
 import tweepy
 import time
 from lxml import html
+from os import environ
 
 response = requests.get('https://news.google.com/covid19/map?hl=ja&gl=JP&ceid=JP%3Aja&mid=%2Fm%2F03_3d&state=4')
 tag = html.fromstring(response.content)
 
 now = datetime.datetime.now()
 date = now.strftime("%Y/%m/%d %H:%M")
+
+CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_SECRET = environ['CONSUMER_SECRET']
+ACCESS_KEY = environ['ACCESS_KEY']
+ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
 
 def news_covid():
     a, b, c, d = tag.xpath('//div[@class="UvMayb"]/text()')
@@ -48,8 +54,8 @@ def vaccine_covid():
     return tweet_world2
 
 if __name__ == '__main__':
-    auth = tweepy.OAuthHandler('3Gkn2Y145WwZ5kFt4NBCBKVGm', 'nio5smQQLOex29tIEJiDWlXUiE8JCi8Y6fmuzQ1DOYKt2QCKrK')
-    auth.set_access_token('1355161653961228291-qHLAUQO5YNckIeln2qGn5bVK5T43AK', 'ZXVBIVxGHDLuKYJ0zMA9vbIsfmRporIqRw4790KMujNLN')
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_KEY_SECRET)
 
     # Create API object
     api = tweepy.API(auth)
