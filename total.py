@@ -18,8 +18,8 @@ ACCESS_KEY = environ['ACCESS_KEY']
 ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
 
 def news_covid():
-    a, b, c, d = tag.xpath('//div[@class="UvMayb"]/text()')
-    a1, b1, c1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
+    a, b, c = tag.xpath('//div[@class="UvMayb"]/text()')
+    a1, b1, c1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
     tweet_world = f'''【新型コロナウィルス感染情報】
 日本国内
 
