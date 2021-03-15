@@ -18,39 +18,46 @@ ACCESS_KEY = environ['ACCESS_KEY']
 ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
 
 def news_covid():
-    a, b, c, d = tag.xpath('//div[@class="UvMayb"]/text()')
-    a1, b1, c1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
-    tweet_world = f'''【新型コロナウィルス感染情報】
-日本国内
+    try: 
+        a, b, c, d = tag.xpath('//div[@class="UvMayb"]/text()')
+        a1, b1, c1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
+        tweet_world = f'''【新型コロナウィルス感染情報】
+    日本国内
 
-新たな感染者(累計感染者)：
-{a1}({a})
+    新たな感染者(累計感染者)：
+    {a1}({a})
 
-昨日の死亡者(累計死亡者):
-{b1}({b})
+    昨日の死亡者(累計死亡者):
+    {b1}({b})
 
-ソース: https://ux.nu/uOa8V
-#COVID19
-取得 {date}'''
+    ソース: https://ux.nu/uOa8V
+    #COVID19
+    取得 {date}'''
+
+    except ValueError:
+        pass
         
     return tweet_world
 
 def vaccine_covid():
-    a, b, c, d = tag.xpath('//div[@class="UvMayb"]/text()')
-    a1, b1, c1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
-    tweet_world2 = f'''【新型コロナワクチン接種】
-日本国内
+    try:
+        a, b, c, d = tag.xpath('//div[@class="UvMayb"]/text()')
+        a1, b1, c1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
+        tweet_world2 = f'''【新型コロナワクチン接種】
+    日本国内
 
-昨日の接種数: {c1}
-合計接種数: {c}
+    昨日の接種数: {c1}
+    合計接種数: {c}
 
-必要回数接種済み: {d}
-人口比: {d1}
+    必要回数接種済み: {d}
+    人口比: {d1}
 
-ソース: https://ux.nu/uOa8V
-#COVID19
-取得 {date}'''
+    ソース: https://ux.nu/uOa8V
+    #COVID19
+    取得 {date}'''
 
+    except ValueError:
+        pass
     return tweet_world2
 
 if __name__ == '__main__':
