@@ -17,7 +17,7 @@ ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
 CHROME_DRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 option = Options()     
 option.add_argument('--headless')  
-driver = webdriver.Chrome(options=option)
+option.add_argument('disable-gpu')
 
 driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH, options=option)
 
