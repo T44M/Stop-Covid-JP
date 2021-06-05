@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from os import environ
 import datetime
 import tweepy
@@ -13,7 +14,12 @@ CONSUMER_SECRET = environ['CONSUMER_SECRET']
 ACCESS_KEY = environ['ACCESS_KEY']
 ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
 
-driver = webdriver.Chrome("C:/Users/go_MT\Downloads/chromedriver_win32/chromedriver.exe")
+CHROME_DRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+option = Options()     
+option.add_argument('--headless')  
+driver = webdriver.Chrome(options=option)
+
+driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH, options=option)
 
 li = ["131181", 
 "131199", 
