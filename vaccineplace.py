@@ -85,25 +85,25 @@ if __name__ == '__main__':
 
         if totalPlaceslist == "nodata":
             nodata = f"""【ワクチン接種会場】
-    ({date})
-    {areaslist}には、現在、予約可能会場がありません。
+({date})
+{areaslist}には、現在、予約可能会場がありません。
             
-    URL: {urlslist}
+URL: {urlslist}
             
-    #COVID19"""
+#コロナウィルス #ワクチン #COVID19"""
             
             time.sleep(60)
             api.update_status(nodata)
         else:
             tweet1 = f"""【ワクチン接種会場】
-    ({date})
-    {areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
+({date})
+{areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
 
-    予約: {urlslist}
+予約: {urlslist}
 
-    #COVID19"""
+#コロナウィルス #ワクチン #COVID19"""
             
             time.sleep(60)
             api.update_status(tweet1)
     
-    print("All of tweet is successful")
+print("All of tweet is successful")
