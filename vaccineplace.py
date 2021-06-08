@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from os import environ
+import os
 import datetime
 import tweepy
 import time
