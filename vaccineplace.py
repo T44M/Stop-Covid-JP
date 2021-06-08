@@ -7,12 +7,12 @@ import time
 import sys
 
 now = datetime.datetime.now()
-date = now.strftime("%Y/%m/%d %H:%M")
+date = now.strftime("%Y/%m/%d")
 
 CONSUMER_KEY = environ['CONSUMER_KEY']
 CONSUMER_SECRET = environ['CONSUMER_SECRET']
 ACCESS_KEY = environ['ACCESS_KEY']
-ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET']
+ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET'] 
 
 CHROME_DRIVER_PATH = "/app/.apt/usr/bin/google-chrome"
 option = Options()     
@@ -66,34 +66,9 @@ for i in li:
 
 driver.close()
 
-tweets = []
-
-for areaslist, totalPlaceslist, urlslist in zip (areas, totalPlaces, urls):
-    
-    tweet = f'''【ワクチン接種会場】
-    ({date})
-    {areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
-
-    予約: {urlslist}
-
-    #COVID19'''
-    
-    tweets.append(tweet)
-    
-    if totalPlaceslist == "nodata":
-        nodata = f'''【ワクチン接種会場】
-        ({date})
-        {areaslist}には、現在、予約可能会場がありません。
-        
-        URL: {urlslist}
-        
-        #COVID19'''
-        
-        tweets.append(nodata)
-
 if __name__ == '__main__':
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    auth.set_access_token(ACCESS_KEY, ACCESS_KEY_SECRET)
+    auth = tweepy.OAuthHandler('3Gkn2Y145WwZ5kFt4NBCBKVGm', 'nio5smQQLOex29tIEJiDWlXUiE8JCi8Y6fmuzQ1DOYKt2QCKrK')
+    auth.set_access_token('1355161653961228291-qHLAUQO5YNckIeln2qGn5bVK5T43AK', 'ZXVBIVxGHDLuKYJ0zMA9vbIsfmRporIqRw4790KMujNLN')
 
     # Create API object
     api = tweepy.API(auth)
@@ -105,8 +80,29 @@ if __name__ == '__main__':
         print('Error while authenticating API')
         sys.exit(1)
 
-    for tweetslist in zip(tweets):
-        api.update_status(tweetslist)
-        time.sleep(60)
-        print('Tweet successful')
+    for areaslist, totalPlaceslist, urlslist in zip (areas, totalPlaces, urls):
 
+        if totalPlaceslist == "nodata":
+            nodata = f"""【ワクチン接種会場】
+    ({date})
+    {areaslist}には、現在、予約可能会場がありません。
+            
+    URL: {urlslist}
+            
+    #COVID19"""
+            
+            time.sleep(60)
+            api.update_status(nodata)
+        else:
+            tweet1 = f"""【ワクチン接種会場】
+    ({date})
+    {areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
+
+    予約: {urlslist}
+
+    #COVID19"""
+            
+            time.sleep(60)
+            api.update_status(tweet1)
+    
+    print("All of tweet is successful")
