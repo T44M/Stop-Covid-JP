@@ -14,12 +14,12 @@ CONSUMER_SECRET = environ['CONSUMER_SECRET']
 ACCESS_KEY = environ['ACCESS_KEY']
 ACCESS_KEY_SECRET = environ['ACCESS_KEY_SECRET'] 
 
-CHROME_DRIVER_PATH = "/app/.chromedriver/bin/chromedriver"
-option = Options()     
-option.add_argument('--headless')  
-option.add_argument('disable-gpu')
-
-driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH, options=option)
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 li = ["131181", 
 "131199", 
