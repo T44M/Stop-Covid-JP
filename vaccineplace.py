@@ -8,7 +8,7 @@ import time
 import sys
 
 now = datetime.datetime.now()
-date = now.strftime("%Y/%m/%d")
+date = now.strftime("%Y/%m/%d %H:%M")
 
 CONSUMER_KEY = environ['CONSUMER_KEY']
 CONSUMER_SECRET = environ['CONSUMER_SECRET']
