@@ -90,10 +90,11 @@ if __name__ == '__main__':
             
 URL: {urlslist}
             
-#コロナウィルス #ワクチン #COVID19"""
+#Covid19Vaccine #ワクチン #COVID19"""
             
             time.sleep(60)
             api.update_status(nodata)
+            
         else:
             tweet1 = f"""【ワクチン接種会場】
 ({date})
@@ -101,7 +102,7 @@ URL: {urlslist}
 
 予約: {urlslist}
 
-#コロナウィルス #ワクチン #COVID19"""
+#Covid19Vaccine #ワクチン #COVID19"""
             
             time.sleep(60)
             api.update_status(tweet1)
