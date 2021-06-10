@@ -25,7 +25,8 @@ def news_covid():
     except ValueError:
         a1, b1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
 
-    tweet_world = f'''【新型コロナウィルス感染情報】
+    tweet_world = f'''{date}
+【新型コロナウィルス感染情報】
 日本国内
 
 新たな感染者(累計感染者)：
@@ -35,8 +36,7 @@ def news_covid():
 {b1}({b})
 
 ソース: https://ux.nu/uOa8V
-#COVID_19
-取得 {date}'''
+#COVID19'''
         
     return tweet_world
 
@@ -47,7 +47,8 @@ def vaccine_covid():
 
     except ValueError:
         a1, b1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
-        tweet_world2 = f'''【新型コロナワクチン接種】
+        tweet_world2 = f'''{date}
+【新型コロナワクチン接種】
 日本国内
 
 昨日の接種数: no data
@@ -57,11 +58,11 @@ def vaccine_covid():
 人口比: {d1}
 
 ソース: https://ux.nu/uOa8V
-#COVID_19
-取得 {date}'''
+#COVID19'''
 
     else:
-        tweet_world2 = f'''【新型コロナワクチン接種】
+        tweet_world2 = f'''{date}
+【新型コロナワクチン接種】
 日本国内
 
 昨日の接種数: {c1}
@@ -71,8 +72,7 @@ def vaccine_covid():
 人口比: {d1}
 
 ソース: https://ux.nu/uOa8V
-#COVID_19
-取得 {date}'''
+#COVID_19'''
 
     return tweet_world2
 
@@ -93,6 +93,7 @@ if __name__ == '__main__':
     tweet = news_covid()
     tweet2 = vaccine_covid()
     api.update_status(tweet)
-    time.sleep(35)
+    time.sleep(60)
     api.update_status(tweet2)
-    print('Tweet successful')
+    
+print('Tweet successful')
