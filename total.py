@@ -25,8 +25,8 @@ def news_covid():
     except ValueError:
         a1, b1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
 
-    tweet_world = f'''{date}
-【新型コロナウィルス感染情報】
+    tweet_world = f'''【新型コロナウィルス感染情報】
+({date})
 日本国内
 
 新たな感染者(累計感染者)：
@@ -47,8 +47,8 @@ def vaccine_covid():
 
     except ValueError:
         a1, b1, d1 = tag.xpath('//div[@class="tIUMlb"]/strong/text()')
-        tweet_world2 = f'''{date}
-【新型コロナワクチン接種】
+        tweet_world2 = f'''【新型コロナワクチン接種】
+({date})
 日本国内
 
 昨日の接種数: no data
@@ -61,8 +61,8 @@ def vaccine_covid():
 #COVID19'''
 
     else:
-        tweet_world2 = f'''{date}
-【新型コロナワクチン接種】
+        tweet_world2 = f'''【新型コロナワクチン接種】
+({date})
 日本国内
 
 昨日の接種数: {c1}
