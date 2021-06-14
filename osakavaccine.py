@@ -113,7 +113,7 @@ if __name__ == '__main__':
             
 URL: {urlslist}
             
-#Covid19Vaccine #ワクチン #COVID19"""
+#Covid19Vaccine #ワクチン #COVID19 #Osaka"""
             
             time.sleep(60)
             api.update_status(nodata)
@@ -123,9 +123,9 @@ URL: {urlslist}
 ({date})
 {areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
 
-予約: {urlslist}
+URL: {urlslist}
 
-#Covid19Vaccine #ワクチン #COVID19"""
+#Covid19Vaccine #ワクチン #COVID19 #Osaka"""
             
             time.sleep(60)
             api.update_status(tweet1)
