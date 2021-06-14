@@ -47,7 +47,30 @@ li = ["%E9%83%BD%E5%B3%B6%E5%8C%BA",
 "%E5%8C%97%E5%8C%BA", 
 "%E4%B8%AD%E5%A4%AE%E5%8C%BA"]
 
-areas = []
+areas = ["都島区", 
+"福島区", 
+"此花区", 
+"西区", 
+"港区", 
+"大正区", 
+"天王寺区", 
+"浪速区", 
+"西淀川区", 
+"東淀川区", 
+"東成区", 
+"生野区", 
+"旭区", 
+"城東区", 
+"阿倍野区", 
+"住吉区", 
+"東住吉区", 
+"西成区", 
+"淀川区", 
+"鶴見区", 
+"住之江区", 
+"平野区", 
+"北区", 
+"中央区"]
 totalPlaces = []
 urls = []
 
@@ -58,9 +81,6 @@ for i in li:
     urls.append(url)
 
     time.sleep(3)
-    
-    area = driver.find_element_by_xpath("/html/body/div[2]/main/div[1]/div/div[2]/h2").text
-    areas.append(area)
     
     try:
         totalPlace = driver.find_element_by_xpath("//*[@id='main-content']/div[1]/div/div[6]/p").text[14:]
