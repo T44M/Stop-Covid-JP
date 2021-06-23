@@ -121,7 +121,7 @@ URL: {urlslist}
         else:
             tweet1 = f"""【ワクチン接種会場】
 ({date})
-{areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
+大阪市{areaslist}にて、{totalPlaceslist}の接種会場が予約可能。
 
 URL: {urlslist}
 
